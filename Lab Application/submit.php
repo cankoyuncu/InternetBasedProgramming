@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost"; // Sunucu adı
-$username = "root"; // MySQL kullanıcı adı
-$password = ""; // MySQL şifresi
-$dbname = "students_db"; // Veritabanı adı
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "students_db"; 
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,17 +22,17 @@ $gender = $_POST["gender"];
 $errors = array();
 
 if (empty($full_name)) {
-    $errors[] = "Full Name alanı boş bırakılamaz.";
+    $errors[] = "Full Name field cannot be left blank.";
 }
 
 if (empty($email)) {
     $errors[] = "Email Address alanı boş bırakılamaz.";
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Geçerli bir Email Address giriniz.";
+    $errors[] = "Enter a valid Email Address.";
 }
 
 if (empty($gender)) {
-    $errors[] = "Gender alanı boş bırakılamaz.";
+    $errors[] = "Gender field cannot be left blank.";
 }
 
 // Error checking and adding to database
@@ -42,12 +42,11 @@ if (empty($errors)) {
             VALUES ('$full_name', '$email', '$gender')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Veri başarıyla veritabanına eklendi.";
+        echo "The data has been successfully added to the database.";
     } else {
-        echo "Veri ekleme hatası: " . $conn->error;
+        echo "Data insertion error: " . $conn->error;
     }
 } else {
-    // Hata mesajlarını gösterme
     foreach ($errors as $error) {
         echo $error . "<br>";
     }
@@ -59,7 +58,7 @@ $result = $conn->query($sql);
 
 // Checking and listing results
 if ($result->num_rows > 0) {
-    echo "<h2>Kayıtlı Öğrenciler</h2>";
+    echo "<h2>Registered Students:</h2>";
     echo "<table>";
     echo "<tr><th>ID</th><th>Full Name</th><th>Email</th><th>Gender</th></tr>";
 
@@ -74,7 +73,7 @@ if ($result->num_rows > 0) {
 
     echo "</table>";
 } else {
-    echo "Henüz kayıtlı öğrenci bulunmamaktadır.";
+    echo "There are no registered students yet.";
 }
 
 // Closing the connection
