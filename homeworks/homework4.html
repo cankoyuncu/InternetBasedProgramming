@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework 4</title>
+    <style>
+        #myCanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Homework 4</h1>
+
+<form action="target_page.php" method="get" target="_blank">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <input type="submit" value="Submit">
+</form> <br><br>
+
+<form action="target_page.php" method="post" target="_self">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        <option value="Turkey">Turkey</option>
+        <option value="Germany">Germany</option>
+        <option value="Italy">USA</option>
+        <option value="France">France</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<canvas id="myCanvas" width="400" height="200"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+
+    context.fillStyle = "red";
+    context.fillRect(50, 50, 100, 100);
+
+    context.strokeStyle = "blue";
+    context.fillRect(200, 50, 100, 100);
+
+    context.beginPath();
+    context.arc(450, 150, 50, 10, 2 * Math.PI);
+    context.fillStyle = "yellow";
+    context.fill();
+    context.closePath();
+</script>
+</body>
+</html>
