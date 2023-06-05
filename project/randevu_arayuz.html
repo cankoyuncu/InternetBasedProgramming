@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Randevu Alma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Randevu Alma</h1>
+        <form action="randevu_kaydet.php" method="post">
+            <label for="clinic">Klinik:</label>
+            <select name="clinic" id="clinic">
+                <option value="1">Yeşiltepe Kliniği</option>
+                <option value="2">Acıbadem Kliniği</option>
+            </select>
+
+            <label for="appointment_date">Randevu Tarihi:</label>
+            <input type="date" name="appointment_date" id="appointment_date">
+
+            <label for="appointment_time">Randevu Saati:</label>
+            <input type="time" name="appointment_time" id="appointment_time">
+
+            <label for="name">Adınız:</label>
+            <input type="text" name="name" id="name">
+
+            <label for="email">E-posta Adresiniz:</label>
+            <input type="text" name="email" id="email">
+
+            <input type="submit" value="Randevu Al">
+        </form>
+    </div>
+</body>
+</html>
